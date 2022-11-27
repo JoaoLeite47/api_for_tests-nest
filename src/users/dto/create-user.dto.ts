@@ -5,36 +5,33 @@ import {
 
 export class CreateUserDto {
     @IsString()
-    @IsNotEmpty()
     @ApiProperty({
-        example: "Joao Leite",
-        description: "User name",
+        description: 'Nome de usuário. Utilizado no login. Deve ser único',
+        example: 'Joao_Leite',
     })
-    name: string;
+    nickname: string;
 
-    @IsEmail()
+    @IsString()
     @ApiProperty({
-        example: "joaoleite@outlook.com",
-        description: "User email",
+        description: 'Nome do usuário. Apenas para exibição',
+        example: 'JoaoLeite@outlook.com',
     })
     email: string;
 
     @IsString()
-    @MinLength(8)
+    @MinLength(6)
     @Matches(/((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/, {
-        message: "Your password must be strong",
+        message: 'Senha muito fraca',
     })
     @ApiProperty({
-        example: "Abc153@Jo@ao",
-        description:
-            "Your password has to be strong, example: Abc153@Jo@ao",
+        description: 'Senha do usuário para login',
+        example: 'N3w_password',
     })
     password: string;
 
-    @IsBoolean()
     @ApiProperty({
-        example: "false",
-        description: "Here are your credentials",
+        description: 'A confirmação da senha deve ser igual a senha',
+        example: 'N3w_password',
     })
-    isAdmin: boolean;
+    confirmPassword: string;
 }
