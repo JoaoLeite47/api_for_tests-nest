@@ -8,8 +8,8 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe());
 
   const config = new DocumentBuilder()
-    .setTitle('Locadora V2')
-    .setDescription('Aplicação para gestão das de uma locadora de veículos')
+    .setTitle('api-tests-nest')
+    .setDescription('Aplicação para testes de endpoint')
     .setVersion('1.0.0')
     .addTag('status')
     .build();
